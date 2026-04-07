@@ -8,7 +8,15 @@ public class Portefeuille {
       this.montant      = montant;
       this.proprietaire = proprietaire;
   }
-
+ /**
+   * Cette fonction vous permet de transférer des devises du portefeuille actuel 
+   * vers le portefeuille de destination pour le montant indiqué. Le type de devise 
+   * (nom du Jeton) doit être le même entre les deux portefeuilles et le montant 
+   * du portefeuille actuel doit être supérieur ou égal à celui indiqué.
+   * @param destination 
+   * @param montantJetons
+   * @return true si la transaction a été effectuée, false sinon.  
+   */
   public boolean transfertDevise(Portefeuille destination, double montantJetons){
 
       if (!this.monnaie.getNom().equals(destination.monnaie.getNom())) {
@@ -25,6 +33,13 @@ public class Portefeuille {
       return true;
   }
 
+  /**
+   * Cette fonction vous permet d'acheter des jetons de la 
+   * crypto-devise en fonction de leur valeur en euros. 
+   * Le résultat est l'augmentation des jetons de la crypto-monnaie.
+   * @param montantEuros Valeur d'achat en euros 
+   * @return true si le montant en euros est supérieur ou égal à 0 
+   */
   public boolean achatDevise(double montantEuros){
 
       if (montantEuros < 0) {
